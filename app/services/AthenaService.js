@@ -6,9 +6,10 @@ const {
 } = require('@aws-sdk/client-athena');
 
 class AthenaService {
-  constructor(database, environment) {
+  constructor(database, environment, credentials) {
     this.client = new AthenaClient({
-      region: 'eu-west-2'
+      region: 'eu-west-2',
+      credentials
     });
 
     this.database = database;
