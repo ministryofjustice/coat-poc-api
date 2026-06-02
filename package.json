@@ -1,0 +1,12 @@
+{
+  "name": "coat-poc-api",
+  "version": "1.0.0",
+  "description": "Proof of Concept API for retrieving cloud cost data.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ./app/main.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
