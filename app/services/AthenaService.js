@@ -11,7 +11,7 @@ class AthenaService {
       region: 'eu-west-2'
     });
 
-    this.database = "database";
+    this.database = database;
     this.workgroup = 'primary';
     this.outputLocation =
       environment === 'production'
