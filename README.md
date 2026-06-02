@@ -7,6 +7,6 @@ Proof of Concept API for retrieving cloud cost data.
 
 Replace MY_AWS_PROFILE with the name of your AWS profile from your AWS configuration.
 
-# How to test
+# Example requests
 
-`make ping-container`
+`curl "http://localhost:3000/api/cloud-cost?billing_period=2025-12&account_name=analytical-platform-compute-production"`
