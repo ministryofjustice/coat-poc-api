@@ -18,6 +18,8 @@ class IAMService {
       throw new Error('Failed to assume role: no credentials returned');
     }
 
+    console.log(`Successfully assumed IAM Role: ${roleArn}`)
+
     return {
       accessKeyId: credentials.AccessKeyId,
       secretAccessKey: credentials.SecretAccessKey,
