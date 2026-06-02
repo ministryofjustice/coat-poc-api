@@ -6,7 +6,7 @@ COPY package.json ./
 
 RUN npm install
 
-COPY server.js ./
+COPY ./app/main.js ./
 
 EXPOSE 3000
 
