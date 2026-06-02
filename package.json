@@ -4,7 +4,7 @@
   "description": "Proof of Concept API for retrieving cloud cost data.",
   "main": "server.js",
   "scripts": {
-    "start": "node ./app/main.js"
+    "start": "node main.js"
   },
   "dependencies": {
     "express": "^4.19.2"
