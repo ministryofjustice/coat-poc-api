@@ -7,6 +7,8 @@ run-container:
 	docker run --rm --name coat-poc-api -p 3000:3000 coat-poc-api
 
 run-container-local:
+	-docker stop coat-poc-api
+
 	echo 'configuring AWS credentials' && \
 	aws sso login --profile "$$AWS_PROFILE" && \
 	eval "$$(aws configure export-credentials --profile "$$AWS_PROFILE" --format env)" && \
