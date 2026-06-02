@@ -1,9 +1,17 @@
 const AthenaService = require('../services/AthenaService');
+const IAMService = require('../services/IAMService');
 
 async function fetchCloudCostData(billing_period, line_item_usage_account_name) {
+  const IAM_client = new IAMService();
+
+  const IAM_credentials = IAM_client.assumeRole(
+    `arn:aws:iam::${process.env.DATA_ACCOUNT_NUMBER}:role/moj-coat-${process.env.APP_ENV}-cur-reports-cross-role`
+  );
+
   const athena_client = new AthenaService(
     "cur_v2_database",
-    process.env.APP_ENV
+    process.env.APP_ENV,
+    IAM_credentials
   );
 
   const query = `

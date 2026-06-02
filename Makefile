@@ -6,6 +6,7 @@ run-container:
 
 	docker run --rm \
 	-e APP_ENV \
+	-e DATA_ACCOUNT_NUMBER \
 	--name coat-poc-api \
 	-p 3000:3000 \
 	coat-poc-api
@@ -23,6 +24,7 @@ run-container-local:
 	printenv | grep AWS && \
 	docker run --rm \
 		-e APP_ENV \
+		-e DATA_ACCOUNT_NUMBER \
 		-e AWS_ACCESS_KEY_ID \
 		-e AWS_SECRET_ACCESS_KEY \
 		-e AWS_SESSION_TOKEN \
