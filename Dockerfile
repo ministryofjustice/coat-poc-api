@@ -23,7 +23,7 @@ COPY package.json ./
 
 RUN npm install
 
-COPY ./app/main.js ./
+COPY ./app ./
 
 EXPOSE 3000
 

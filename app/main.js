@@ -1,4 +1,5 @@
 const express = require("express");
+const cloudCostRoutes = require('./routes/cloudCost');
 
 const app = express();
 const PORT = 3000;
@@ -11,10 +12,11 @@ app.use((req, res, next) => {
   next();
 });
 
-// Hello world endpoint
 app.get("/hello", (req, res) => {
   res.json({ message: "hello world" });
 });
+
+app.use('/api', cloudCostRoutes);
 
 app.listen(PORT, () => {
   console.log(`API running on port ${PORT}`);
