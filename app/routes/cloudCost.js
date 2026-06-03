@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { getCloudCostDaily } = require('../controllers/cloudCostController');
+const { getCloudCostData } = require('../controllers/cloudCostController');
 
-router.get("/daily", getCloudCostDaily);
+router.get('/cloud-cost', getCloudCostData);
 
 module.exports = router;
