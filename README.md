@@ -10,6 +10,7 @@ make run-container-local
 
 - Replace MY_AWS_PROFILE with the name of your AWS profile from your AWS configuration.
 - Replace XXXXXXX (value for DATA_ACCOUNT_NUMBER) with the account number of the `coat-development` account.
+- Don't forget to launch the Docker daemon on your local machine.
 
 # Example requests
 
