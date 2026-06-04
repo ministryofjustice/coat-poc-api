@@ -14,7 +14,7 @@ make run-container-local
 
 # Example requests
 
-`curl "http://localhost:3000/api/v1/cloud-cost/daily?start_usage_date=2025-12-01&end_usage_date=2025-12-20&account_name=analytical-platform-compute-production&region=eu-west-2"`
+`curl "http://localhost:3000/api/v1/cloud-cost/daily?start_usage_date=2025-12-01&end_usage_date=2025-12-20&account_name=analytical-platform-compute-production&region=eu-west-2"`ddddds
 
 `curl "http://localhost:3000/api/v1/cloud-cost/daily?start_usage_date=2025-12-01&end_usage_date=2025-12-20&business_unit=Platforms&product_name=Amazon%20Simple%20Storage%20Service"`
 
