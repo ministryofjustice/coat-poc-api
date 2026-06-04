@@ -28,15 +28,12 @@ async function fetchCloudCostDaily(
 
   const query = `
     SELECT
-      billing_period,
       account_name,
       product_name,
       SUM(daily_cost) AS total_daily_cost
     FROM fct_daily_cost
-    WHERE billing_period = '${billing_period}'
-      AND account_name = '${line_item_usage_account_name}'
-    GROUP BY 
-      billing_period, 
+    WHERE account_name = '${account_name}'
+    GROUP BY
       account_name, 
       product_name
     ORDER BY total_daily_cost DESC;

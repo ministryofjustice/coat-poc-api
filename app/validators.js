@@ -1,9 +1,11 @@
 function validateParameters(req_query) {
     const parameters = Object.keys(req_query);
 
-    mandatory_params = ["start_usage_date", "end_usage_date"]
+    console.log(`Parameters: ${parameters}`);
 
-    for (const param in mandatory_params) {
+    const mandatory_params = ["start_usage_date", "end_usage_date"]
+
+    for (const param of mandatory_params) {
         if (!(parameters.includes(param))) {
             return {
                 valid: false, 
@@ -11,7 +13,7 @@ function validateParameters(req_query) {
         };
     };
 
-    valid_params = [
+    const valid_params = [
       "start_usage_date",
       "end_usage_date",
       "account_name",
@@ -25,7 +27,7 @@ function validateParameters(req_query) {
       "product_name"
     ];
 
-    for (const param in parameters) {
+    for (const param of parameters) {
         if (!(valid_params.includes(param))) {
             return {valid: false, message: `Invalid parameter: ${param}`};
         };
@@ -37,7 +39,7 @@ function validateParameters(req_query) {
             message: `At least one categorical parameter requred from: ${valid_params.slice(2).join(",")}`};
     }
 
-    return true
+    return { valid: true }
 }
 
 module.exports = {

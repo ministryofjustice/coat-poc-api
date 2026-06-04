@@ -41,7 +41,6 @@ async function getCloudCostDaily(req, res) {
     );
 
     return res.status(200).json({
-      billing_period: billing_period,
       account_name: account_name,
       results: data
     });
