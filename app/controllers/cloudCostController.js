@@ -10,7 +10,7 @@ async function getCloudCostDaily(req, res) {
       });
     }
 
-    const data = await fetchCloudCostData(billing_period, account_name);
+    const data = await fetchCloudCostDaily(billing_period, account_name);
 
     return res.status(200).json({
       billing_period: billing_period,

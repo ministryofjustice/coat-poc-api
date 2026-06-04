@@ -13,4 +13,4 @@ make run-container-local
 
 # Example requests
 
-`curl "http://localhost:3000/api/cloud-cost?billing_period=2025-12&account_name=analytical-platform-compute-production"`
+`curl "http://localhost:3000/api/v1/cloud-cost/daily?billing_period=2025-12&account_name=analytical-platform-compute-production"`

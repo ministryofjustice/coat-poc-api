@@ -16,7 +16,7 @@ app.get("/hello", (req, res) => {
   res.json({ message: "hello world" });
 });
 
-app.use("/api/v1/cloud-costs", cloudCostRoutes);
+app.use("/api/v1/cloud-cost", cloudCostRoutes);
 
 app.listen(PORT, () => {
   console.log(`API running on port ${PORT}`);
