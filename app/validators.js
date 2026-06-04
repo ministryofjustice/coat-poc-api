@@ -39,3 +39,7 @@ function validateParameters(req_query) {
 
     return true
 }
+
+module.exports = {
+    validateParameters
+}
