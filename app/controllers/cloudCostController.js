@@ -1,6 +1,6 @@
-const { fetchCloudCostData } = require('../models/cloudCostModel');
+const { fetchCloudCostDaily } = require('../models/cloudCostModel');
 
-async function getCloudCostData(req, res) {
+async function getCloudCostDaily(req, res) {
   try {
     const { billing_period, account_name } = req.query;
 
@@ -27,5 +27,5 @@ async function getCloudCostData(req, res) {
 }
 
 module.exports = {
-  getCloudCostData
+  getCloudCostDaily
 };
