@@ -27,7 +27,7 @@ async function fetchCloudCostDaily(billing_period, line_item_usage_account_name)
       billing_period, 
       account_name, 
       product_name
-    ORDER BY total_cost DESC;
+    ORDER BY total_daily_cost DESC;
   `;
 
   const results = await athena_client.runQuery(query);
