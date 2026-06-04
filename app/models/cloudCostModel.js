@@ -28,15 +28,13 @@ async function fetchCloudCostDaily(
 
   const query = `
     SELECT
-      account_name,
-      product_name,
+      usage_date,
       SUM(daily_cost) AS total_daily_cost
     FROM fct_daily_cost
-    WHERE account_name = '${account_name}'
-    GROUP BY
-      account_name, 
-      product_name
-    ORDER BY total_daily_cost DESC;
+    WHERE 
+      usage_date BETWEEN DATE '${start_usage_date}' AND DATE '${end_usage_date}'
+    GROUP BY usage_date 
+    ORDER BY usage_date;
   `;
 
   const results = await athena_client.runQuery(query);
