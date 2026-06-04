@@ -1,7 +1,19 @@
 const AthenaService = require('../services/AthenaService');
 const IAMService = require('../services/IAMService');
 
-async function fetchCloudCostDaily(billing_period, line_item_usage_account_name) {
+async function fetchCloudCostDaily(
+  account_name,
+  region,
+  environment,
+  business_unit,
+  application,
+  namespace,
+  service_area,
+  owner,
+  product_name,
+  start_usage_date,
+  end_usage_date
+) {
   const IAM_client = new IAMService();
 
   const IAM_credentials = IAM_client.assumeRole(
