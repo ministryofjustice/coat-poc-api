@@ -17,13 +17,16 @@ async function fetchCloudCostDaily(billing_period, line_item_usage_account_name)
   const query = `
     SELECT
       billing_period,
-      line_item_usage_account_name,
-      line_item_product_code,
-      SUM(CAST(line_item_unblended_cost AS DOUBLE)) AS total_cost
-    FROM data
+      account_name,
+      product_name,
+      SUM(daily_cost) AS total_daily_cost
+    FROM fct_daily_cost
     WHERE billing_period = '${billing_period}'
-      AND line_item_usage_account_name = '${line_item_usage_account_name}'
-    GROUP BY billing_period, line_item_usage_account_name, line_item_product_code
+      AND account_name = '${line_item_usage_account_name}'
+    GROUP BY 
+      billing_period, 
+      account_name, 
+      product_name
     ORDER BY total_cost DESC;
   `;
 
