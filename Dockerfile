@@ -9,6 +9,8 @@ RUN apk add --no-cache \
     less \
     aws-cli
 
+RUN npm install -g npm@11.6.4
+
 COPY package.json ./
 
 RUN npm install
