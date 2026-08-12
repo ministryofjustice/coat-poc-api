@@ -14,11 +14,19 @@ async function fetchCloudCostDaily(
   start_usage_date,
   end_usage_date
 ) {
-  const IAM_client = new IAMService();
 
-  const IAM_credentials = IAM_client.assumeRole(
-    `arn:aws:iam::${process.env.DATA_ACCOUNT_NUMBER}:role/coat-api-${process.env.APP_ENV}-cross-account-role`
-  );
+  // dev: skip role assumption and use the developer's own SSO session directly
+  // coat-api-${process.env.APP_ENV}-cross-account-role no longer exists
+  let IAM_credentials;
+
+  if (process.env.APP_ENV === 'development') {
+    IAM_credentials = undefined;
+  } else {
+    const IAM_client = new IAMService();
+    IAM_credentials = await IAM_client.assumeRole(
+      `arn:aws:iam::${process.env.DATA_ACCOUNT_NUMBER}:role/coat-api-${process.env.APP_ENV}-cross-account-role`
+    );
+  }
 
   const athena_client = new AthenaService(
     "cur_v2_database",
