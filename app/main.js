@@ -1,5 +1,6 @@
 const express = require("express");
 const cloudCostRoutes = require('./routes/cloudCost');
+const sustainabilityRoutes = require('./routes/sustainability');
 
 const app = express();
 const PORT = 3000;
@@ -17,6 +18,7 @@ app.get("/hello", (req, res) => {
 });
 
 app.use("/api/v1/cloud-cost", cloudCostRoutes);
+app.use("/api/v1/sustainability", sustainabilityRoutes);
 
 app.listen(PORT, () => {
   console.log(`API running on port ${PORT}`);
