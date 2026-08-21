@@ -1,5 +1,4 @@
 const AthenaService = require('../services/AthenaService');
-// const IAMService = require('../services/IAMService'); <-- no need for this atm as we aren't calling this service for any IAM role
 
 async function fetchCloudCostDaily(
   account_name,
