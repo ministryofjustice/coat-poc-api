@@ -1,5 +1,5 @@
 const AthenaService = require('../services/AthenaService');
-const IAMService = require('../services/IAMService');
+// const IAMService = require('../services/IAMService'); <-- no need for this atm as we aren't calling this service for any IAM role
 
 async function fetchCloudCostDaily(
   account_name,
@@ -14,24 +14,11 @@ async function fetchCloudCostDaily(
   start_usage_date,
   end_usage_date
 ) {
-
-  // dev: skip role assumption and use the developer's own SSO session directly
-  // coat-api-${process.env.APP_ENV}-cross-account-role no longer exists
-  let IAM_credentials;
-
-  if (process.env.APP_ENV === 'development') {
-    IAM_credentials = undefined;
-  } else {
-    const IAM_client = new IAMService();
-    IAM_credentials = await IAM_client.assumeRole(
-      `arn:aws:iam::${process.env.DATA_ACCOUNT_NUMBER}:role/coat-api-${process.env.APP_ENV}-cross-account-role`
-    );
-  }
-
+  // IAM role is currently undefined until we decide to use IRSA role or assuming a different role
   const athena_client = new AthenaService(
     "cur_v2_database",
     process.env.APP_ENV,
-    IAM_credentials
+    undefined
   );
 
   const query = `
@@ -101,21 +88,11 @@ async function fetchCloudCostMovements(
   start_billing_period,
   end_billing_period
 ) {
-  let IAM_credentials;
-
-  if (process.env.APP_ENV === 'development') {
-    IAM_credentials = undefined;
-  } else {
-    const IAM_client = new IAMService();
-    IAM_credentials = await IAM_client.assumeRole(
-      `arn:aws:iam::${process.env.DATA_ACCOUNT_NUMBER}:role/coat-api-${process.env.APP_ENV}-cross-account-role`
-    );
-  }
-
+  // IAM role is currently undefined until we decide to use IRSA role or assuming a different role
   const athena_client = new AthenaService(
     "cur_v2_database",
     process.env.APP_ENV,
-    IAM_credentials
+    undefined
   );
 
   const query = `
